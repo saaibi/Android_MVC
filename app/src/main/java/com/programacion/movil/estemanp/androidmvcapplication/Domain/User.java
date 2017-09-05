@@ -1,10 +1,5 @@
 package com.programacion.movil.estemanp.androidmvcapplication.Domain;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-
-import com.programacion.movil.estemanp.androidmvcapplication.Repository.UserContract;
-
 /**
  * Created by estemanp on 19/08/16.
  */
@@ -22,24 +17,6 @@ public class User {
         this.setUserName(userName);
         this.setPassword(password);
         this.setAge(age);
-    }
-
-    public User(Cursor cursor) {
-        userName = cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.USER_NAME));
-        name = cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.NAME));
-        lastName = cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.LAST_NAME));
-        password = cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.PASSWORD));
-        age = cursor.getInt(cursor.getColumnIndex(UserContract.UserEntry.AGE));
-    }
-
-    public ContentValues toContentValues() {
-        ContentValues values = new ContentValues();
-        values.put(UserContract.UserEntry.USER_NAME, getUserName());
-        values.put(UserContract.UserEntry.NAME, getName());
-        values.put(UserContract.UserEntry.LAST_NAME, getLastName());
-        values.put(UserContract.UserEntry.PASSWORD, getPassword());
-        values.put(UserContract.UserEntry.AGE, getAge());
-        return values;
     }
 
     public String getName() {
